@@ -3,6 +3,7 @@
     "name": "laravel-starter",
     "type": "module",
     "scripts": {
+        "start": "npm run dev",
         "dev": "vite",
         "build": "vite build"
     },
