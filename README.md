@@ -1,66 +1,38 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel Starter with DDEV
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A basic Laravel starter project for folks to get up and running with Laravel. There are many other ways to do this. I found DDEV to be the simplest.
 
-## About Laravel
+DDEV is wonderful. I use it on all my WordPress too. Messing around with MAMP or using PHP, MySQL, Composer, and Apache with Homebrew is painful. DDEV makes running projects locally much easier. It uses Docker, but you don’t have to know Docker.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Prerequisites
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Docker (Docker Desktop or [Colima](https://github.com/abiosoft/colima))
+- [DDEV](https://ddev.readthedocs.io/en/latest/users/install/docker-installation/)
+- Node.js
+- [TablePlus](https://github.com/abiosoft/colima) or similar (optional)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Initial Setup
 
-## Learning Laravel
+1. `git clone https://github.com/srwild/laravel-starter.git` clone the repository
+2. `cd laravel-starter` enter the project directory
+3. `ddev start` start DDEV
+4. `cp .env.example .env` duplicate the `.env` **Note:** the example is already setup up for DDEV. Variables will need to be change for other environments.
+5. `ddev composer install` install Composer packages.
+6. `ddev artisan key:generate` generate the Laravel application key.
+7. `npm install` install Node packages.
+8. `npm run dev` compile the assets and start the Vite server that will refresh your browser when changes are saved. `npm run build` will only compile the assets.
+9. `ddev launch` launch the app in your browser or go to `https://larvel-starter.ddev.site`. You should see the welcome page.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Optional Next Steps
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+The purpose of this starter project is to get the SysAdmin work out of the way. There are more steps depending on what you want to use.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- This is setup with vanilla CSS and JavaScript. I leave it up to you if you want to use Sass (SCSS), [Tailwind](https://tailwindcss.com/docs/guides/laravel), or something else. 
+- You can also install [Livewire](https://livewire.laravel.com/docs/installation), which is great.
+- [Inertia](https://inertiajs.com/server-side-setup) is another option if you want to use a frontend JavaScript like Vue or React. Note that you will need to adjust the file structure for that.
 
-## Laravel Sponsors
+## Miscellaneous
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+I setup the Vite server to use HTTPS. Safari won’t load the assets unless they are served over HTTPS, it throws CORS errors. The example `.env` uses DDEV’s certs located in `.ddev/traefik/certs`. If you have issues or want to change them you can update the environment variables `VITE_HTTPS_CERT` and `VITE_HTTPS_KEY`. I’ve used [mkcert](https://github.com/FiloSottile/mkcert), then I accidentally found DDEV creates its own. Cool.
 
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+If you’re working on the frontend, editing Blade and HTML, Laravel’s view caching gets really annoying and slows you down. Mashing refresh in the browser eventually works or running `ddev artisan optimize:clear`. I have an option to disable caching *completely* in local environments by setting `CACHE_DRIVER=array` and `DISABLE_CACHE=true`. **CAUTION:** you will get Laravel errors occasionally, refreshing the page will solve it. There is most likely a better way to do this. If you know of one, please let me know.
