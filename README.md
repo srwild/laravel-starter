@@ -1,5 +1,8 @@
 # Laravel Starter with DDEV
 
+> [!WARNING]
+> This is still progress and needs more testing.
+
 A basic Laravel starter project for folks to get up and running with Laravel. There are many other ways to do this. I found DDEV to be the simplest.
 
 DDEV is wonderful. I use it on all my WordPress too. Messing around with MAMP or using PHP, MySQL, Composer, and Apache with Homebrew is painful. DDEV makes running projects locally much easier. It uses Docker, but you don’t have to know Docker.
