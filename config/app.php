@@ -5,9 +5,6 @@ use Illuminate\Support\ServiceProvider;
 
 return [
 
-    // Disable cache for local development
-    'cache' => env('DISABLE_CACHE') ? false : true,
-
     /*
     |--------------------------------------------------------------------------
     | Application Name

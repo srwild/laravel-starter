@@ -2,6 +2,9 @@
 
 return [
 
+    // Disable cache for local development
+    'cache' => env('DISABLE_CACHE') ? false : true,
+
     /*
     |--------------------------------------------------------------------------
     | View Storage Paths
