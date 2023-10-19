@@ -30,12 +30,18 @@ DDEV is wonderful. I use it on all my WordPress too. Messing around with MAMP or
 
 The purpose of this starter project is to get the SysAdmin work out of the way. There are more steps depending on what you want to use.
 
-- This is setup with vanilla CSS and JavaScript. I leave it up to you if you want to use Sass (SCSS), [Tailwind](https://tailwindcss.com/docs/guides/laravel), or something else. 
+- This is setup with vanilla CSS and JavaScript. I leave it up to you if you want to use Sass (SCSS), [Tailwind](https://tailwindcss.com/docs/guides/laravel), or something else.
 - You can also install [Livewire](https://livewire.laravel.com/docs/installation), which is great.
 - [Inertia](https://inertiajs.com/server-side-setup) is another option if you want to use a frontend JavaScript like Vue or React. Note that you will need to adjust the file structure for that.
 
 ## Miscellaneous
 
-I setup the Vite server to use HTTPS. Safari won’t load the assets unless they are served over HTTPS, it throws CORS errors. The example `.env` uses DDEV’s certs located in `.ddev/traefik/certs`. If you have issues or want to change them you can update the environment variables `VITE_HTTPS_CERT` and `VITE_HTTPS_KEY`. I’ve used [mkcert](https://github.com/FiloSottile/mkcert), then I accidentally found DDEV creates its own. Cool.
+### Vite Server with HTTPS
+
+I setup the Vite server to use HTTPS. Safari won’t load the assets unless they are served over HTTPS, it throws CORS errors. The example `.env` uses DDEV’s certs located in `.ddev/traefik/certs`. Uncomment `VITE_HTTPS_CERT` and `VITE_HTTPS_KEY` in your `.env`.  If you don’t have anything in that directory, you may need to run `ddev stop --all && mkcert -install`. This is part of installing DDEV on you machine, but is often missed.
+
+If you have more issues or want to change them you can update the environment variables `VITE_HTTPS_CERT` and `VITE_HTTPS_KEY`. I’ve used [mkcert](https://github.com/FiloSottile/mkcert), then I accidentally found DDEV creates its own. Cool.
+
+### View Caching
 
 If you’re working on the frontend, editing Blade and HTML, Laravel’s view caching gets really annoying and slows you down. Mashing refresh in the browser eventually works or running `ddev artisan optimize:clear`. I have an option to disable caching *completely* in local environments by setting `CACHE_DRIVER=array` and `DISABLE_CACHE=true`. **CAUTION:** you will get Laravel errors occasionally, refreshing the page will solve it. There is most likely a better way to do this. If you know of one, please let me know.
