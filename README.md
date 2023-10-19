@@ -19,12 +19,11 @@ DDEV is wonderful. I use it on all my WordPress too. Messing around with MAMP or
 1. `git clone https://github.com/srwild/laravel-starter.git` clone the repository
 2. `cd laravel-starter` enter the project directory
 3. `ddev start` start DDEV
-4. `cp .env.example .env` duplicate the `.env` **Note:** the example is already setup up for DDEV. Variables will need to be change for other environments.
-5. `ddev composer install` install Composer packages.
-6. `ddev artisan key:generate` generate the Laravel application key.
-7. `npm install` install Node packages.
-8. `npm run dev` compile the assets and start the Vite server that will refresh your browser when changes are saved. `npm run build` will only compile the assets.
-9. `ddev launch` launch the app in your browser or go to `https://larvel-starter.ddev.site`. You should see the welcome page.
+4. `ddev composer install` install Composer packages.
+5. `ddev artisan key:generate` generate the Laravel application key.
+6. `npm install` install Node packages.
+7. `npm run dev` compile the assets and start the Vite server that will refresh your browser when changes are saved. `npm run build` will only compile the assets.
+8. `ddev launch` launch the app in your browser or go to `https://larvel-starter.ddev.site`. You should see the welcome page.
 
 ## Optional Next Steps
 
